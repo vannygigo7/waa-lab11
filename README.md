@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# waa-lab11
+
+1. Create a component which loop through the colors in an array every 1 second, starting from the first element in the array. If it reaches the end of the array, start from 0 again, until the component is unmounted by click unmount button.
+
+2. Redo yesterday's demo using function component with useState() hook. If you've already done using hook, change to do with class component.
+
+3.  Create a component which display a button and an input field. When click on the button, it focuses on an input field which means the cursor moves to input field using useRef() Hook.
+
+4. Practice useCallback(), useMemo() by yourself.

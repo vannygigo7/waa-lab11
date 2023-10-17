@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colors</title>
+    <script src="../../libraries/react.development.js" type="text/javascript"></script>
+    <script src="../../libraries/react-dom.development.js" type="text/javascript"></script>
+    <script src="../../libraries/babel.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+
+    class ColorClass extends React.Component{
+        state = {colors: ['Red', 'Green', 'Blue', 'Yellow', 'Pink'], colorIndex: 0}
+        timerId;
+
+        unMount = () =>{
+            clearInterval(this.timerId );
+            root.unmount();
+        }
+
+        constructor(props) {
+            super(props);
+        }
+
+        componentDidMount() {
+            this.timerId =  setInterval(()=>{
+                const {colors, colorIndex} = this.state;
+                if(colorIndex === colors.length - 1){
+                    this.setState({colorIndex: 0 });
+                }else{
+                    this.setState({colorIndex: colorIndex + 1});
+                }
+            }, 1000);
+        }
+
+        render() {
+            const {colors, colorIndex} = this.state;
+            return(
+                <div>
+                    The current color: {colors[colorIndex]}
+                    <br/><br/>
+                    <button onClick={this.unMount}>Unmount</button>
+                </div>
+            );
+        }
+    }
+
+
+    const root = ReactDOM.createRoot(document.getElementById('container'));
+    root.render(<ColorClass />);
+</script>
+</body>
+</html>
